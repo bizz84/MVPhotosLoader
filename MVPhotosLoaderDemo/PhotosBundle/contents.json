@@ -1,0 +1,7 @@
+{
+    "assets": [
+       { "name": "aspectRatio2500x900.jpg", "albums": ["Imported", "Favourites"] },
+       { "name": "aspectRatio900x2500.jpg", "albums": ["Imported", "Family"] },
+       { "name": "test.mov", "albums": ["Imported"] }
+    ]
+}

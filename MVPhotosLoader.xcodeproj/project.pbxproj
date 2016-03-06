@@ -16,6 +16,10 @@
 		656EEBBE1C8C9A5A00E43AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBBD1C8C9A5A00E43AAC /* Assets.xcassets */; };
 		656EEBC11C8C9A5A00E43AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBBF1C8C9A5A00E43AAC /* LaunchScreen.storyboard */; };
 		656EEBC71C8C9A7300E43AAC /* MVPhotosLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 656EEBA11C8C99C000E43AAC /* MVPhotosLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		656EEBCE1C8C9C5100E43AAC /* aspectRatio2500x900.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBCC1C8C9C5100E43AAC /* aspectRatio2500x900.jpg */; };
+		656EEBCF1C8C9C5100E43AAC /* aspectRatio900x2500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBCD1C8C9C5100E43AAC /* aspectRatio900x2500.jpg */; };
+		656EEBD11C8C9C6B00E43AAC /* contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBD01C8C9C6B00E43AAC /* contents.json */; };
+		656EEBD31C8C9D0F00E43AAC /* MVPhotosAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EEBD21C8C9D0F00E43AAC /* MVPhotosAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		656EEBBD1C8C9A5A00E43AAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		656EEBC01C8C9A5A00E43AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		656EEBC21C8C9A5A00E43AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656EEBCC1C8C9C5100E43AAC /* aspectRatio2500x900.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aspectRatio2500x900.jpg; sourceTree = "<group>"; };
+		656EEBCD1C8C9C5100E43AAC /* aspectRatio900x2500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aspectRatio900x2500.jpg; sourceTree = "<group>"; };
+		656EEBD01C8C9C6B00E43AAC /* contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contents.json; sourceTree = "<group>"; };
+		656EEBD21C8C9D0F00E43AAC /* MVPhotosAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPhotosAccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,7 @@
 			children = (
 				656EEBA41C8C99C000E43AAC /* MVPhotosLoader.h */,
 				656EEBA61C8C99C000E43AAC /* Info.plist */,
+				656EEBD21C8C9D0F00E43AAC /* MVPhotosAccess.swift */,
 				656EEBAC1C8C99DC00E43AAC /* MVPhotosLoader.swift */,
 				656EEBAE1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift */,
 			);
@@ -107,6 +116,7 @@
 		656EEBB51C8C9A5A00E43AAC /* MVPhotosLoaderDemo */ = {
 			isa = PBXGroup;
 			children = (
+				656EEBCB1C8C9C5100E43AAC /* PhotosBundle */,
 				656EEBB61C8C9A5A00E43AAC /* AppDelegate.swift */,
 				656EEBB81C8C9A5A00E43AAC /* ViewController.swift */,
 				656EEBBA1C8C9A5A00E43AAC /* Main.storyboard */,
@@ -115,6 +125,16 @@
 				656EEBC21C8C9A5A00E43AAC /* Info.plist */,
 			);
 			path = MVPhotosLoaderDemo;
+			sourceTree = "<group>";
+		};
+		656EEBCB1C8C9C5100E43AAC /* PhotosBundle */ = {
+			isa = PBXGroup;
+			children = (
+				656EEBD01C8C9C6B00E43AAC /* contents.json */,
+				656EEBCC1C8C9C5100E43AAC /* aspectRatio2500x900.jpg */,
+				656EEBCD1C8C9C5100E43AAC /* aspectRatio900x2500.jpg */,
+			);
+			path = PhotosBundle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,8 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				656EEBC11C8C9A5A00E43AAC /* LaunchScreen.storyboard in Resources */,
+				656EEBCE1C8C9C5100E43AAC /* aspectRatio2500x900.jpg in Resources */,
 				656EEBBE1C8C9A5A00E43AAC /* Assets.xcassets in Resources */,
+				656EEBD11C8C9C6B00E43AAC /* contents.json in Resources */,
 				656EEBBC1C8C9A5A00E43AAC /* Main.storyboard in Resources */,
+				656EEBCF1C8C9C5100E43AAC /* aspectRatio900x2500.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +255,7 @@
 			files = (
 				656EEBAD1C8C99DC00E43AAC /* MVPhotosLoader.swift in Sources */,
 				656EEBAF1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift in Sources */,
+				656EEBD31C8C9D0F00E43AAC /* MVPhotosAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
