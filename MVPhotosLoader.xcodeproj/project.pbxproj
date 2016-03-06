@@ -8,16 +8,64 @@
 
 /* Begin PBXBuildFile section */
 		656EEBA51C8C99C000E43AAC /* MVPhotosLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 656EEBA41C8C99C000E43AAC /* MVPhotosLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		656EEBAD1C8C99DC00E43AAC /* MVPhotosLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EEBAC1C8C99DC00E43AAC /* MVPhotosLoader.swift */; };
+		656EEBAF1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EEBAE1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift */; };
+		656EEBB71C8C9A5A00E43AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EEBB61C8C9A5A00E43AAC /* AppDelegate.swift */; };
+		656EEBB91C8C9A5A00E43AAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656EEBB81C8C9A5A00E43AAC /* ViewController.swift */; };
+		656EEBBC1C8C9A5A00E43AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBBA1C8C9A5A00E43AAC /* Main.storyboard */; };
+		656EEBBE1C8C9A5A00E43AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBBD1C8C9A5A00E43AAC /* Assets.xcassets */; };
+		656EEBC11C8C9A5A00E43AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656EEBBF1C8C9A5A00E43AAC /* LaunchScreen.storyboard */; };
+		656EEBC71C8C9A7300E43AAC /* MVPhotosLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 656EEBA11C8C99C000E43AAC /* MVPhotosLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		656EEBC81C8C9A7300E43AAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 656EEB981C8C99C000E43AAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 656EEBA01C8C99C000E43AAC;
+			remoteInfo = MVPhotosLoader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		656EEBCA1C8C9A7300E43AAC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				656EEBC71C8C9A7300E43AAC /* MVPhotosLoader.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		656EEBA11C8C99C000E43AAC /* MVPhotosLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MVPhotosLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		656EEBA41C8C99C000E43AAC /* MVPhotosLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPhotosLoader.h; sourceTree = "<group>"; };
 		656EEBA61C8C99C000E43AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656EEBAC1C8C99DC00E43AAC /* MVPhotosLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVPhotosLoader.swift; sourceTree = "<group>"; };
+		656EEBAE1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVAssetSourceMetadata.swift; sourceTree = "<group>"; };
+		656EEBB41C8C9A5A00E43AAC /* MVPhotosLoaderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVPhotosLoaderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		656EEBB61C8C9A5A00E43AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		656EEBB81C8C9A5A00E43AAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		656EEBBB1C8C9A5A00E43AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		656EEBBD1C8C9A5A00E43AAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		656EEBC01C8C9A5A00E43AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		656EEBC21C8C9A5A00E43AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		656EEB9D1C8C99C000E43AAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		656EEBB11C8C9A5A00E43AAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				656EEBA31C8C99C000E43AAC /* MVPhotosLoader */,
+				656EEBB51C8C9A5A00E43AAC /* MVPhotosLoaderDemo */,
 				656EEBA21C8C99C000E43AAC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				656EEBA11C8C99C000E43AAC /* MVPhotosLoader.framework */,
+				656EEBB41C8C9A5A00E43AAC /* MVPhotosLoaderDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,8 +98,23 @@
 			children = (
 				656EEBA41C8C99C000E43AAC /* MVPhotosLoader.h */,
 				656EEBA61C8C99C000E43AAC /* Info.plist */,
+				656EEBAC1C8C99DC00E43AAC /* MVPhotosLoader.swift */,
+				656EEBAE1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift */,
 			);
 			path = MVPhotosLoader;
+			sourceTree = "<group>";
+		};
+		656EEBB51C8C9A5A00E43AAC /* MVPhotosLoaderDemo */ = {
+			isa = PBXGroup;
+			children = (
+				656EEBB61C8C9A5A00E43AAC /* AppDelegate.swift */,
+				656EEBB81C8C9A5A00E43AAC /* ViewController.swift */,
+				656EEBBA1C8C9A5A00E43AAC /* Main.storyboard */,
+				656EEBBD1C8C9A5A00E43AAC /* Assets.xcassets */,
+				656EEBBF1C8C9A5A00E43AAC /* LaunchScreen.storyboard */,
+				656EEBC21C8C9A5A00E43AAC /* Info.plist */,
+			);
+			path = MVPhotosLoaderDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,16 +149,39 @@
 			productReference = 656EEBA11C8C99C000E43AAC /* MVPhotosLoader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		656EEBB31C8C9A5A00E43AAC /* MVPhotosLoaderDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 656EEBC31C8C9A5A00E43AAC /* Build configuration list for PBXNativeTarget "MVPhotosLoaderDemo" */;
+			buildPhases = (
+				656EEBB01C8C9A5A00E43AAC /* Sources */,
+				656EEBB11C8C9A5A00E43AAC /* Frameworks */,
+				656EEBB21C8C9A5A00E43AAC /* Resources */,
+				656EEBCA1C8C9A7300E43AAC /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				656EEBC91C8C9A7300E43AAC /* PBXTargetDependency */,
+			);
+			name = MVPhotosLoaderDemo;
+			productName = MVPhotosLoaderDemo;
+			productReference = 656EEBB41C8C9A5A00E43AAC /* MVPhotosLoaderDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		656EEB981C8C99C000E43AAC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = musevisions;
 				TargetAttributes = {
 					656EEBA01C8C99C000E43AAC = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					656EEBB31C8C9A5A00E43AAC = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -104,6 +192,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 656EEB971C8C99C000E43AAC;
 			productRefGroup = 656EEBA21C8C99C000E43AAC /* Products */;
@@ -111,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				656EEBA01C8C99C000E43AAC /* MVPhotosLoader */,
+				656EEBB31C8C9A5A00E43AAC /* MVPhotosLoaderDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +213,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		656EEBB21C8C9A5A00E43AAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656EEBC11C8C9A5A00E43AAC /* LaunchScreen.storyboard in Resources */,
+				656EEBBE1C8C9A5A00E43AAC /* Assets.xcassets in Resources */,
+				656EEBBC1C8C9A5A00E43AAC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -130,10 +230,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656EEBAD1C8C99DC00E43AAC /* MVPhotosLoader.swift in Sources */,
+				656EEBAF1C8C9A1B00E43AAC /* MVAssetSourceMetadata.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		656EEBB01C8C9A5A00E43AAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656EEBB91C8C9A5A00E43AAC /* ViewController.swift in Sources */,
+				656EEBB71C8C9A5A00E43AAC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		656EEBC91C8C9A7300E43AAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 656EEBA01C8C99C000E43AAC /* MVPhotosLoader */;
+			targetProxy = 656EEBC81C8C9A7300E43AAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		656EEBBA1C8C9A5A00E43AAC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				656EEBBB1C8C9A5A00E43AAC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		656EEBBF1C8C9A5A00E43AAC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				656EEBC01C8C9A5A00E43AAC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		656EEBA71C8C99C000E43AAC /* Debug */ = {
@@ -228,32 +366,63 @@
 		656EEBAA1C8C99C000E43AAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MVPhotosLoader/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.musevisions.iOS.MVPhotosLoader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		656EEBAB1C8C99C000E43AAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MVPhotosLoader/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.musevisions.iOS.MVPhotosLoader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		656EEBC41C8C9A5A00E43AAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = MVPhotosLoaderDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.musevisions.iOS.MVPhotosLoaderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		656EEBC51C8C9A5A00E43AAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = MVPhotosLoaderDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.musevisions.iOS.MVPhotosLoaderDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -274,6 +443,14 @@
 			buildConfigurations = (
 				656EEBAA1C8C99C000E43AAC /* Debug */,
 				656EEBAB1C8C99C000E43AAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		656EEBC31C8C9A5A00E43AAC /* Build configuration list for PBXNativeTarget "MVPhotosLoaderDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				656EEBC41C8C9A5A00E43AAC /* Debug */,
+				656EEBC51C8C9A5A00E43AAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
