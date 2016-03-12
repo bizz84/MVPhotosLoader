@@ -106,6 +106,7 @@ public class MVPhotosLoader: NSObject {
         guard let changeRequest = PHAssetChangeRequest.creationRequestForAssetFromImageAtFileURL(metadata.fileURL) else {
             return
         }
+        changeRequest.favorite = metadata.favorite
         
         let filteredAssetCollections = filterAssetCollections(assetCollections, forAlbumsInMetadata: metadata)
         

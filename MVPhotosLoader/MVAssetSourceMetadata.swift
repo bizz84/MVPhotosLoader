@@ -13,7 +13,7 @@ struct MVAssetSourceMetadata {
     let name: String
     let fileURL: NSURL
     let albums: [String]
-    
+    let favorite: Bool
     
     init?(json: [String : AnyObject]) {
         guard let name = json["name"] as? String,
@@ -24,6 +24,7 @@ struct MVAssetSourceMetadata {
         self.name = name
         self.fileURL = fileURL
         self.albums = json["albums"] as? [String] ?? []
+        self.favorite = json["favorite"] as? Bool ?? false
     }
     
     private static func fileURL(name: String) -> NSURL? {
