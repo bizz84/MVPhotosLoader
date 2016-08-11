@@ -11,14 +11,14 @@ import Photos
 
 public class MVPhotosLoader: NSObject {
     
-    public class func addPhotos(sourceData: [String: AnyObject], completion: (error: NSError?) -> ()) {
+    public class func addPhotos(_ sourceData: [String: AnyObject], completion: (error: NSError?) -> ()) {
         
         let sourcesMetadata = buildMetadata(sourceData)
         
         updateAlbums(sourcesMetadata, completion: completion)
     }
     
-    private class func buildMetadata(sourceData: [String: AnyObject]) -> [ MVAssetSourceMetadata ] {
+    private class func buildMetadata(_ sourceData: [String: AnyObject]) -> [ MVAssetSourceMetadata ] {
         
         guard let assets = sourceData["assets"] as? [ [String : AnyObject] ] else {
             return []
@@ -27,7 +27,7 @@ public class MVPhotosLoader: NSObject {
         return assets.flatMap{ MVAssetSourceMetadata(json: $0) }
     }
     
-    private class func updateAlbums(sourcesMetadata: [MVAssetSourceMetadata], completion: (error: NSError?) -> ()) {
+    private class func updateAlbums(_ sourcesMetadata: [MVAssetSourceMetadata], completion: (error: NSError?) -> ()) {
         
         let userAssetCollections = fetchTopLevelUserCollections()
         
@@ -41,13 +41,13 @@ public class MVPhotosLoader: NSObject {
         }
     }
 
-    private class func addMissingAlbums(assetSources: [MVAssetSourceMetadata], existingAlbums: [PHAssetCollection], completion: (assetCollections: [PHAssetCollection], error: NSError?) -> ()) {
+    private class func addMissingAlbums(_ assetSources: [MVAssetSourceMetadata], existingAlbums: [PHAssetCollection], completion: (assetCollections: [PHAssetCollection], error: NSError?) -> ()) {
         
         let missingNames = missingAlbumNames(assetSources, assetCollections: existingAlbums)
         
         if missingNames.count > 0 {
         
-            PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            PHPhotoLibrary.shared().performChanges({
             
                 let _ = createAlbums(names: missingNames)
 
@@ -63,9 +63,9 @@ public class MVPhotosLoader: NSObject {
         }
     }
     
-    private class func insertAssets(assetSources: [MVAssetSourceMetadata], assetCollections: [PHAssetCollection], completion: (error: NSError?) -> ()) {
+    private class func insertAssets(_ assetSources: [MVAssetSourceMetadata], assetCollections: [PHAssetCollection], completion: (error: NSError?) -> ()) {
         
-        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+        PHPhotoLibrary.shared().performChanges({
             
             for assetSource in assetSources {
                 
@@ -79,7 +79,7 @@ public class MVPhotosLoader: NSObject {
     }
     
     
-    private class func missingAlbumNames(sourcesMetadata: [MVAssetSourceMetadata], assetCollections: [PHAssetCollection]) -> [String] {
+    private class func missingAlbumNames(_ sourcesMetadata: [MVAssetSourceMetadata], assetCollections: [PHAssetCollection]) -> [String] {
 
         let targetAlbumNames = Set(sourcesMetadata.flatMap { $0.albums })
         
@@ -96,17 +96,17 @@ public class MVPhotosLoader: NSObject {
         return missingAlbumNames
     }
     
-    class func createAlbums(names names: [String]) -> [PHAssetCollectionChangeRequest] {
+    class func createAlbums(names: [String]) -> [PHAssetCollectionChangeRequest] {
         
-        return names.map { PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle($0) }
+        return names.map { PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: $0) }
     }
     
-    private class func insertAsset(metadata: MVAssetSourceMetadata, inAssetCollections assetCollections: [PHAssetCollection]) {
+    private class func insertAsset(_ metadata: MVAssetSourceMetadata, inAssetCollections assetCollections: [PHAssetCollection]) {
      
-        guard let changeRequest = PHAssetChangeRequest.creationRequestForAssetFromImageAtFileURL(metadata.fileURL) else {
+        guard let changeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: metadata.fileURL as URL) else {
             return
         }
-        changeRequest.favorite = metadata.favorite
+        changeRequest.isFavorite = metadata.favorite
         
         let filteredAssetCollections = filterAssetCollections(assetCollections, forAlbumsInMetadata: metadata)
         
@@ -114,7 +114,7 @@ public class MVPhotosLoader: NSObject {
             
             for assetCollection in filteredAssetCollections {
                 
-                if let assetCollectionChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: assetCollection) {
+                if let assetCollectionChangeRequest = PHAssetCollectionChangeRequest(for: assetCollection) {
                     
                     assetCollectionChangeRequest.addAssets([ placeholder ])
                 }
@@ -122,7 +122,7 @@ public class MVPhotosLoader: NSObject {
         }
     }
     
-    class func filterAssetCollections(userCollections: [PHAssetCollection], forAlbumsInMetadata metadata: MVAssetSourceMetadata) -> [PHAssetCollection] {
+    class func filterAssetCollections(_ userCollections: [PHAssetCollection], forAlbumsInMetadata metadata: MVAssetSourceMetadata) -> [PHAssetCollection] {
         
         return userCollections.filter {
             
@@ -134,11 +134,11 @@ public class MVPhotosLoader: NSObject {
 
 extension MVPhotosLoader {
     
-    private class func fetchSmartAlbum(subtype: PHAssetCollectionSubtype) -> PHAssetCollection? {
+    private class func fetchSmartAlbum(_ subtype: PHAssetCollectionSubtype) -> PHAssetCollection? {
         
-        let fetchResult = PHAssetCollection.fetchAssetCollectionsWithType(.SmartAlbum, subtype: subtype, options: nil)
+        let fetchResult = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: subtype, options: nil)
         
-        return fetchResult.firstObject as? PHAssetCollection
+        return fetchResult.firstObject
     }
 
     private class func fetchTopLevelUserCollections() -> [PHAssetCollection] {
@@ -146,15 +146,15 @@ extension MVPhotosLoader {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "localizedTitle", ascending: true)]
         
-        let fetchResult = PHCollectionList.fetchTopLevelUserCollectionsWithOptions(fetchOptions)
+        let fetchResult = PHCollectionList.fetchTopLevelUserCollections(with: fetchOptions)
         
         var collections: [PHAssetCollection] = []
-        fetchResult.enumerateObjectsUsingBlock { object, index, pointer in
+        fetchResult.enumerateObjects({ object, index, pointer in
             
             if let collection = object as? PHAssetCollection {
                 collections.append(collection)
             }
-        }
+        })
         return collections
     }
 }

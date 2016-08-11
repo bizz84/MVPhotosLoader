@@ -11,7 +11,7 @@ import UIKit
 struct MVAssetSourceMetadata {
     
     let name: String
-    let fileURL: NSURL
+    let fileURL: URL
     let albums: [String]
     let favorite: Bool
     
@@ -27,14 +27,14 @@ struct MVAssetSourceMetadata {
         self.favorite = json["favorite"] as? Bool ?? false
     }
     
-    private static func fileURL(name: String) -> NSURL? {
+    private static func fileURL(_ name: String) -> URL? {
         
-        if let url = NSURL(string: name) {
+        if let url = URL(string: name) {
             let ext = url.pathExtension
-            let fileName = url.URLByDeletingPathExtension?.lastPathComponent
+            let fileName = url.deletingPathExtension().lastPathComponent
             
-            if let filePath = NSBundle.mainBundle().pathForResource(fileName, ofType: ext) {
-                return NSURL(fileURLWithPath: filePath)
+            if let filePath = Bundle.main.path(forResource: fileName, ofType: ext) {
+                return URL(fileURLWithPath: filePath)
             }
         }
         return nil

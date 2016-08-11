@@ -16,17 +16,17 @@ class PhotosAccessAlert {
     static let settings = "Settings"
     static let cancel = "Cancel"
 
-    class func requestAuthorization(completion: (PHAuthorizationStatus) -> ()) -> UIAlertController {
+    class func requestAuthorization(_ completion: (PHAuthorizationStatus) -> ()) -> UIAlertController {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
 
-        let settingsAction = UIAlertAction(title: settings, style: UIAlertActionStyle.Default, handler: { action in
+        let settingsAction = UIAlertAction(title: settings, style: UIAlertActionStyle.default, handler: { action in
         
-            if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
-                UIApplication.sharedApplication().openURL(url)
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.openURL(url)
             }
         })
-        let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.Default, handler: { action in
+        let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.default, handler: { action in
             
             print("Images will not show")
             completion(PHPhotoLibrary.authorizationStatus())
@@ -40,22 +40,22 @@ class PhotosAccessAlert {
 
 public class MVPhotosAccess {
  
-    public class func checkAuthorization(presenter: UIViewController, completion: (PHAuthorizationStatus) -> ()) {
+    public class func checkAuthorization(_ presenter: UIViewController, completion: (PHAuthorizationStatus) -> ()) {
         
         switch PHPhotoLibrary.authorizationStatus() {
-        case .NotDetermined: // Should never get here
+        case .notDetermined: // Should never get here
             PHPhotoLibrary.requestAuthorization() { authorizationStatus in
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     completion(authorizationStatus)
                 }
             }
-        case .Restricted: fallthrough
-        case .Denied:
-            dispatch_async(dispatch_get_main_queue()) {
+        case .restricted: fallthrough
+        case .denied:
+            DispatchQueue.main.async {
                 let alert = PhotosAccessAlert.requestAuthorization(completion)
-                presenter.presentViewController(alert, animated: true, completion: nil)
+                presenter.present(alert, animated: true, completion: nil)
             }
-        case .Authorized:
+        case .authorized:
             completion(PHPhotoLibrary.authorizationStatus())
         }
     }
