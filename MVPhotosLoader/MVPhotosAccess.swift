@@ -16,7 +16,7 @@ class PhotosAccessAlert {
     static let settings = "Settings"
     static let cancel = "Cancel"
 
-    class func requestAuthorization(_ completion: (PHAuthorizationStatus) -> ()) -> UIAlertController {
+    class func requestAuthorization(_ completion: @escaping (PHAuthorizationStatus) -> ()) -> UIAlertController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
 
@@ -38,9 +38,9 @@ class PhotosAccessAlert {
     }
 }
 
-public class MVPhotosAccess {
+open class MVPhotosAccess {
  
-    public class func checkAuthorization(_ presenter: UIViewController, completion: (PHAuthorizationStatus) -> ()) {
+    open class func checkAuthorization(_ presenter: UIViewController, completion: @escaping (PHAuthorizationStatus) -> ()) {
         
         switch PHPhotoLibrary.authorizationStatus() {
         case .notDetermined: // Should never get here

@@ -27,7 +27,7 @@ struct MVAssetSourceMetadata {
         self.favorite = json["favorite"] as? Bool ?? false
     }
     
-    private static func fileURL(_ name: String) -> URL? {
+    fileprivate static func fileURL(_ name: String) -> URL? {
         
         if let url = URL(string: name) {
             let ext = url.pathExtension
