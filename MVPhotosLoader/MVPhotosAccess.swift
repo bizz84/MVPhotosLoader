@@ -18,15 +18,15 @@ class PhotosAccessAlert {
 
     class func requestAuthorization(_ completion: @escaping (PHAuthorizationStatus) -> ()) -> UIAlertController {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
 
-        let settingsAction = UIAlertAction(title: settings, style: UIAlertActionStyle.default, handler: { action in
+        let settingsAction = UIAlertAction(title: settings, style: UIAlertAction.Style.default, handler: { action in
         
-            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.openURL(url)
             }
         })
-        let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.default, handler: { action in
+        let cancelAction = UIAlertAction(title: cancel, style: UIAlertAction.Style.default, handler: { action in
             
             print("Images will not show")
             completion(PHPhotoLibrary.authorizationStatus())
@@ -55,8 +55,9 @@ open class MVPhotosAccess {
                 let alert = PhotosAccessAlert.requestAuthorization(completion)
                 presenter.present(alert, animated: true, completion: nil)
             }
-        case .authorized:
+        case .authorized: fallthrough
+        @unknown default:
             completion(PHPhotoLibrary.authorizationStatus())
-        }
+      }
     }
 }

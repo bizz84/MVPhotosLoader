@@ -24,7 +24,7 @@ open class MVPhotosLoader: NSObject {
             return []
         }
         
-        return assets.flatMap{ MVAssetSourceMetadata(json: $0) }
+        return assets.compactMap{ MVAssetSourceMetadata(json: $0) }
     }
     
     fileprivate class func updateAlbums(_ sourcesMetadata: [MVAssetSourceMetadata], completion: @escaping (_ error: Error?) -> ()) {
@@ -83,7 +83,7 @@ open class MVPhotosLoader: NSObject {
 
         let targetAlbumNames = Set(sourcesMetadata.flatMap { $0.albums })
         
-        let existingAlbumNames = assetCollections.flatMap{ $0.localizedTitle }
+        let existingAlbumNames = assetCollections.compactMap{ $0.localizedTitle }
 
         var missingAlbumNames: [String] = []
         for name in targetAlbumNames {
